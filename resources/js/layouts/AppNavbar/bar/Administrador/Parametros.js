@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import { List, ListItem, ListItemIcon, ListItemText, Collapse } from "@material-ui/core";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import ApartmentIcon from '@material-ui/icons/Apartment';
-import BusinessIcon from '@material-ui/icons/Business';
 import LanguageIcon from '@material-ui/icons/Language';
-import NaturePeopleIcon from '@material-ui/icons/NaturePeople';
-import PublicIcon from '@material-ui/icons/Public';
-import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
-import CategoryIcon from '@material-ui/icons/Category';
-import MoneyIcon from '@material-ui/icons/Money';
+import DomainIcon from '@material-ui/icons/Domain';
+import PhotoIcon from '@material-ui/icons/Photo';
+import WallpaperIcon from '@material-ui/icons/Wallpaper';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,17 +39,35 @@ function Parametros() {
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    <ListItem component={Link} button to="/parametros/tipospedidos" className={classes.nested} >
+                    <ListItem component={Link} button to="/parametros/paises" className={classes.nested}>
                         <ListItemIcon>
                             <LanguageIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Tipos de Servicios" />
+                        <ListItemText primary="Paises" />
                     </ListItem>
-                    <ListItem component={Link} button to="/" className={classes.nested}>
+                    <ListItem component={Link} button to="/parametros/regiones" className={classes.nested}>
                         <ListItemIcon>
-                            <PublicIcon />
+                            <WallpaperIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Sin asignar" />
+                        <ListItemText primary="Regiones" />
+                    </ListItem>
+                    <ListItem component={Link} button to="/parametros/departamentos" className={classes.nested}>
+                        <ListItemIcon>
+                            <DomainIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Departamentos" />
+                    </ListItem>
+                    <ListItem component={Link} button to="/parametros/ciudades" className={classes.nested}>
+                        <ListItemIcon>
+                            <PhotoIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Ciudades" />
+                    </ListItem>
+                    <ListItem component={Link} button to="/parametros/tiposusuarios" className={classes.nested}>
+                        <ListItemIcon>
+                            <PhotoIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Tipos Usuarios" />
                     </ListItem>
                 </List>
             </Collapse>

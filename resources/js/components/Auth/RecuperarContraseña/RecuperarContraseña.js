@@ -13,7 +13,11 @@ import "./RecuperarContraseña.scss";
 const useStyles = makeStyles((theme) => ({
   typography: {
     fontSize: 20,
-    color   : "#f9fbe7"
+    color   : "#000"
+  },
+  typography2: {
+    fontSize: 16,
+    color: "#000"
   }
 }));
 
@@ -79,7 +83,7 @@ export default function RecuperarContraseña(props) {
   return (
     <div className="login-form">
       <Typography  align="center" className={ styles.typography } variant="button" display="block" >
-        Recuperar Contraseña en GIM Cloud
+        Recuperar Contraseña en Just In Time
       </Typography>
       <br/>
       <Form onSubmit={onSubmit} onChange={onChange}>
@@ -120,11 +124,8 @@ export default function RecuperarContraseña(props) {
       </Form>
 
       <div className="login-form__options">
-        <p onClick={() => setSelectedForm(null)}>Regresar</p>
-        <p>
-          ¿No tienes cuenta?{" "}
-          <span onClick={() => setSelectedForm("register")}>Regístrate</span>
-        </p>
+        <Typography className={styles.typography2} onClick={() => setSelectedForm(null)}  > Regresar </Typography>
+        <Typography className={styles.typography2} onClick={() => setSelectedForm("register")} > ¿No tienes cuenta?{" "} Regístrate </Typography>
       </div>
     </div>
   );

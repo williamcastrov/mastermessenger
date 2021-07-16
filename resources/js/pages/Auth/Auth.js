@@ -6,7 +6,7 @@ import Login from "../../components/Auth/Login";
 import RegistrarUsuario from "../../components/Auth/RegistrarUsuario";
 import RecuperarContraseña from "../../components/Auth/RecuperarContraseña";
 
-import LogoAuth from "../../assets/img/logomm.png"; 
+import LogoAuth from "../../assets/img/logojit_2.png";
 import BackgroundAuth from "../../assets/img/UserGuestMM5.jpg";
 
 import "./Auth.scss";
@@ -28,6 +28,20 @@ export default function Auth() {
   };
 
   return (
+    <div className="auth">
+      <div />
+      <div >
+        <div className="auth__box-logo">
+          <img src={LogoAuth} alt="MasterMessenger" />
+        </div>
+        {handlerForm()}
+      </div>
+    </div>
+  );
+}
+
+/*
+  return (
     <div className="auth" style={{ backgroundImage: `url(${BackgroundAuth})` }}>
       <div />
       <div className="auth__box">
@@ -38,5 +52,7 @@ export default function Auth() {
       </div>
     </div>
   );
-}
+*/
+
+
 

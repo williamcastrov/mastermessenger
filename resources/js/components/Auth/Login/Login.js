@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Icon, Form, Input } from "semantic-ui-react";
 import { validateEmail } from "../../../server/Validations";
-import {Typography, makeStyles } from "@material-ui/core";
+import { Typography, makeStyles } from "@material-ui/core";
 import firebase from "../../../server/firebase";
 import "firebase/auth";
 //import { useDispatch } from "react-redux";
@@ -13,7 +13,11 @@ import "./Login.scss";
 const useStyles = makeStyles((theme) => ({
   typography: {
     fontSize: 20,
-    color   : "#000"
+    color: "#000"
+  },
+  typography2: {
+    fontSize: 16,
+    color: "#000"
   }
 }));
 
@@ -53,22 +57,22 @@ export default function LoginForm(props) {
       setIsLoading(true);
 
       firebase
-      .auth()
-      .signInWithEmailAndPassword(formData.email, formData.password)
-      .then((response) => {
-        swal({
-          title: "Login",
-          text: "Acceso a Master Messenger OK!",
-          icon: "success",
-          button: "Aceptar"
+        .auth()
+        .signInWithEmailAndPassword(formData.email, formData.password)
+        .then((response) => {
+          swal({
+            title: "Login",
+            text: "Acceso a Just In Time OK!",
+            icon: "success",
+            button: "Aceptar"
+          });
+        })
+        .catch((err) => {
+          handlerErrors(err.code);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
-      })
-      .catch((err) => {
-        handlerErrors(err.code);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
     }
   };
 
@@ -81,8 +85,8 @@ export default function LoginForm(props) {
 
   return (
     <div className="login-form">
-      <Typography  align="center" className={ styles.typography } variant="button" display="block" >
-        Iniciar Sesión en Master Messenger
+      <Typography align="center" className={styles.typography} variant="button" display="block" >
+        Iniciar Sesión en Just In Time
       </Typography>
       <br />
       <Form onSubmit={onSubmit} onChange={onChange}>
@@ -107,10 +111,10 @@ export default function LoginForm(props) {
             placeholder="Contraseña"
             error={formError.password}
             icon={showPassword ? (
-                <Icon name="eye slash outline" link onClick={handlerShowPassword} />
-              ) : (
-                <Icon name="eye" link onClick={handlerShowPassword} />
-              )
+              <Icon name="eye slash outline" link onClick={handlerShowPassword} />
+            ) : (
+              <Icon name="eye" link onClick={handlerShowPassword} />
+            )
             }
           />
           {formError.password && (
@@ -123,11 +127,8 @@ export default function LoginForm(props) {
       </Form>
 
       <div className="login-form__options">
-        <p onClick={() => setSelectedForm(null)}>Regresar</p>
-        <p>
-          ¿No tienes cuenta?{" "}
-          <span onClick={() => setSelectedForm("register")}>Regístrate</span>
-        </p>
+        <Typography className={styles.typography2} onClick={() => setSelectedForm(null)}  > Regresar </Typography>
+        <Typography className={styles.typography2} onClick={() => setSelectedForm("register")} > ¿No tienes cuenta?{" "} Regístrate </Typography>
       </div>
     </div>
   );
@@ -137,25 +138,25 @@ function handlerErrors(code) {
   switch (code) {
     case "auth/wrong-password":
       swal({
-        title : "Registro Usuarios",
-        text  : "El usuario o la contraseña son incorrecto!",
-        icon  : "warning",
+        title: "Registro Usuarios",
+        text: "El usuario o la contraseña son incorrecto!",
+        icon: "warning",
         button: "Aceptar"
       });
       break;
     case "auth/too-many-requests":
       swal({
-        title : "Registro Usuarios",
-        text  : "Has enviado demasiadas solicitudes de reenvio de email de confirmacion en muy poco tiempo!",
-        icon  : "warning",
+        title: "Registro Usuarios",
+        text: "Has enviado demasiadas solicitudes de reenvio de email de confirmacion en muy poco tiempo!",
+        icon: "warning",
         button: "Aceptar"
       });
       break;
     case "auth/user-not-found":
       swal({
-        title : "Registro Usuarios",
-        text  : "El usuario o la contraseña son incorrecto",
-        icon  : "warning",
+        title: "Registro Usuarios",
+        text: "El usuario o la contraseña son incorrecto",
+        icon: "warning",
         button: "Aceptar"
       });
       break;

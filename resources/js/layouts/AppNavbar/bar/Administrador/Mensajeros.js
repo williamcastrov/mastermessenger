@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
-import {ListSubheader, List, ListItem, ListItemIcon, ListItemText, Collapse } from "@material-ui/core";
-import {ExpandLess, ExpandMore} from "@material-ui/icons";
+import { ListSubheader, List, ListItem, ListItemIcon, ListItemText, Collapse } from "@material-ui/core";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import CenterFocusWeakIcon from '@material-ui/icons/CenterFocusWeak';
-import StoreIcon from '@material-ui/icons/Store';
+import MotorcycleIcon from '@material-ui/icons/Motorcycle';
 import VerticalAlignCenterIcon from '@material-ui/icons/VerticalAlignCenter';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
@@ -34,8 +34,8 @@ function Activos() {
     setOpenPA(!openPA);
   };
 
-  return (     
-      <div>
+  return (
+    <div>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
           <MonetizationOnIcon />
@@ -43,32 +43,32 @@ function Activos() {
         <ListItemText primary="Mensajero" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-   
+
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          
+
           <ListItem button className={classes.nested} button onClick={handleClickPA} >
             <ListItemIcon>
               <ViewHeadlineIcon />
             </ListItemIcon>
             <ListItemText primary="Gestión Mensajero" />
-            {openPA ? <ExpandLess /> : <ExpandMore />}  
+            {openPA ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openPA} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem component={Link} button to="/" className={classes.nested} >
+              <ListItem component={Link} button to="/interlocutores/mensajeros" className={classes.nested}>
                 <ListItemIcon>
-                  <StoreIcon />
+                  < MotorcycleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Crear Mensajero" />
+                <ListItemText primary="Mensajeros" />
               </ListItem>
-              <ListItem component={Link} button to="/" className={classes.nested} >
+              <ListItem component={Link} button to="/mensajeros/pedidosmensajero" className={classes.nested} >
                 <ListItemIcon>
                   <VerticalAlignCenterIcon />
                 </ListItemIcon>
                 <ListItemText primary="Pedidos mensajero" />
               </ListItem>
-              <ListItem component={Link} button to="/" className={classes.nested}>
+              <ListItem component={Link} button to="/mensajeros/estadoctamensajero" className={classes.nested}>
                 <ListItemIcon>
                   <CenterFocusWeakIcon />
                 </ListItemIcon>
@@ -85,7 +85,7 @@ function Activos() {
           </ListItem>
         </List>
       </Collapse>
-      </div>
+    </div>
   );
 }
 

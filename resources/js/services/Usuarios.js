@@ -20,7 +20,8 @@ usuarios.listUsuarios = async () => {
     return res;
 }
 
-usuarios.leerUsuario = async (email_usu) => {
+usuarios.leerUsuario = async(email_usu) => {
+    console.log("DATA USUARIO : ", email_usu)
     const urlList = baseUrl+"/leer_usuario/"+email_usu
     const res = await axios.get(urlList)
     .then(response=>{ return response.data; })

@@ -177,7 +177,7 @@ function RegistrarUsuario(props) {
 
 
     if (creaUsuario) {
-      console.log("ENTRO");
+      //console.log("ENTRO");
       const res = await usuariosServices.save(usuarios);
 
       if (res.success) {
@@ -219,7 +219,7 @@ function RegistrarUsuario(props) {
   return (
     <div className="register-form" >
       <Typography  align="center" className={ styles.typography } variant="button" display="block" >
-        Registrarse en GIM Cloud
+        Registrarse en Just In Time
       </Typography>
       <br/>
       <Form onChange={onChange} onSubmit={onSubmit} >

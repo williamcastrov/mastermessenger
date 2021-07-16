@@ -1,6 +1,4 @@
 @import "../../../scss/index.scss";
-
-
 .register-form {
     margin-top: 20px;
   
@@ -17,8 +15,8 @@
           margin-bottom: 5px;
   
           input {
-            background-color: $background-grey;
-            border: 0;
+            //background-color: $primary-color-hover;
+            border: 2;
             font-size: 16px;
             color: $font-light;
   
@@ -26,12 +24,12 @@
             &:active,
             &:focus {
               background-color: $background-grey-hover;
-              border: 0;
+              border: 2;
             }
           }
   
           i {
-            color: $font-light;
+            color: $primary-color;
             font-size: 19px;
           }
           &.error {
@@ -55,14 +53,14 @@
       }
   
       .error-text {
-        color: $font-light;
+        color: $primary-color;
         padding-left: 15px;
       }
     }
   
     &__options {
       margin-top: 20px;
-      color: $font-light;
+      color: #000;
       text-align: center;
       font-size: 16px;
      
@@ -80,7 +78,7 @@
           color: $font-grey;
   
           span {
-            color: $font-light;
+            color: $primary-color;
             text-decoration: underline;
             padding-left: 5px;
             &:hover {

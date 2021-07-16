@@ -3,7 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ListSubheader, List } from "@material-ui/core";
 import Parametros from "./Parametros";
 import Usuarios from "./Usuarios";
+import Terceros from "./Terceros";
 import Pedidos from "./Pedidos";
+import Tiquetera from "./Tiquetera";
 import Mensajeros from "./Mensajeros";
 import MisDirecciones from "./MisDirecciones";
 import Informes from "./Informes";
@@ -40,6 +42,8 @@ function Administrador() {
         >
             <Parametros />
             <Usuarios />
+            <Terceros />
+            <Tiquetera />
             <Pedidos />
             <Mensajeros />
             <MisDirecciones />

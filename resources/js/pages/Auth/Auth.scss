@@ -23,7 +23,7 @@
     &__box {
       position: relative;
       background-color: $background-grey-light;
-      width: 500px;
+      width: 300px;
       z-index: 1;
       padding: 50px 40px;
       border-radius: 10px;
@@ -31,7 +31,7 @@
       &-logo {
         text-align: center;
         img {
-          width: 130px;
+          width: 250px;
         }
       }
     }

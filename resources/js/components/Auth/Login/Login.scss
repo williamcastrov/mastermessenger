@@ -4,20 +4,20 @@
   margin-top: 20px;
 
   h1 {
-    color: $font-light;
+    color: $primary-color;
     text-align: center;
     font-size: 30px;
     padding-bottom: 20px;
   }
-
+  
   .ui.form {
     .field {
       .input {
         margin-bottom: 5px;
 
         input {
-          background-color: $background-grey;
-          border: 0;
+          //background-color: $background-grey;
+          border: 2;
           font-size: 16px;
           color: $font-light;
 
@@ -25,12 +25,12 @@
           &:active,
           &:focus {
             background-color: $background-grey-hover;
-            border: 0;
+            border: 2;
           }
         }
 
         i {
-          color: $font-light;
+          color: $primary-color;
           font-size: 19px;
         }
         &.error {
@@ -60,7 +60,7 @@
   }
 
   .resend-verification-email {
-    color: $font-light;
+    color: $primary-color;
     padding: 20px 20px 0 20px;
     text-align: center;
 
@@ -75,7 +75,7 @@
 
   &__options {
     margin-top: 30px;
-    color: $font-light;
+    color: #000;
     text-align: center;
     font-size: 16px;
  
@@ -84,7 +84,7 @@
     p {
       &:first-of-type {
         margin-bottom: 20px;
-        &:hover {
+        &:hover { 
           cursor: pointer;
         }
       }
@@ -93,7 +93,7 @@
         color: $font-grey;
 
         span {
-          color: $font-light;
+          color: #000;
           text-decoration: underline;
           padding-left: 5px;
           &:hover {

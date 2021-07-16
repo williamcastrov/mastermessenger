@@ -19,7 +19,7 @@ function AuthOptions(props) {
   return (
     <div className="auth-options">
       <Typography  align="center" className={ styles.typography } variant="button" display="block" >
-        Iniciar Sesión o Recuperar Contraseña en MASTER MESSENGER
+        Iniciar Sesión o Recuperar Contraseña en Just In Time
       </Typography>
       <br/>
       <Button className="login" onClick={() => setSelectedForm("login")}>

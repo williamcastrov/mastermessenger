@@ -18,7 +18,7 @@ function AuthOptionsAdmon(props) {
   return (
     <div className="auth-options">
       <Typography  align="center" className={ styles.typography } variant="button" display="block" >
-        Registrase, Iniciar Sesión, Recuperar Contraseña en GIM CLOUD
+        Registrarse, Iniciar Sesión, Recuperar Contraseña en Just In Time
       </Typography>
       <br/>
       <Button className="register" onClick={() => setSelectedForm("registro")}>

@@ -71,7 +71,7 @@ const BarSession = (props) => {
 
                 </IconButton>
                 <Typography variant="h3" color="inherit" >
-                    Master Messenger
+                    JUST IN TIME
                 </Typography>
                 
                 <div className={classes.grow} ></div>
