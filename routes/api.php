@@ -191,6 +191,9 @@ Route::get('pedidos/listar_pedidosterminar', 'App\Http\Controllers\API\Pedidos\P
 Route::post('/pedidos/create', 'App\Http\Controllers\API\Pedidos\PedidosController@create');
 Route::get('/pedidos/get/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@get');
 Route::get('/pedidos/leerpedidosmensajeros/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@leerpedidosmensajeros');
+Route::get('/pedidos/leerpedidoscliente/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@leerpedidoscliente');
+
 Route::get('/pedidos/leerestadoctamensajero/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@leerestadoctamensajero');
+Route::get('/pedidos/leerestadoctacliente/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@leerestadoctacliente');
 Route::delete('/pedidos/delete/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@delete');
 Route::put('/pedidos/update/{id}', 'App\Http\Controllers\API\Pedidos\PedidosController@update');

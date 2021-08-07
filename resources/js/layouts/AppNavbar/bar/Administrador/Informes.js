@@ -35,14 +35,13 @@ function Informes() {
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
-   
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem component={Link} button to="/informes/clientes" className={classes.nested}>
+          <ListItem component={Link} button to="/informes/estadoctacliente" className={classes.nested}>
             <ListItemIcon>
               <AssessmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Activos en Renta" />
+            <ListItemText primary="Estado de Cuenta Cliente" />
           </ListItem>
           <ListItem component={Link} button to="/pdf/PrincipalPDF" className={classes.nested}>
             <ListItemIcon>

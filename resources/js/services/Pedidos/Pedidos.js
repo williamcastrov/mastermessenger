@@ -76,9 +76,29 @@ pedidos.leerpedidosmensajeros = async (mensajero) => {
     return res;
 }
 
+pedidos.leerpedidoscliente = async (cliente) => {
+    console.log("DATA SERVICES : ", cliente)
+    const urlList = baseUrl+"/leerpedidoscliente/"+cliente
+    const res = await axios.get(urlList)
+    .then(response=>{ return response.data; })
+    .catch(error=>{ return error; })
+   
+    return res;
+}
+
 pedidos.leerestadoctamensajero = async (mensajero) => {
     console.log("DATA SERVICES : ",mensajero)
     const urlList = baseUrl+"/leerestadoctamensajero/"+mensajero
+    const res = await axios.get(urlList)
+    .then(response=>{ return response.data; })
+    .catch(error=>{ return error; })
+   
+    return res;
+}
+
+pedidos.leerestadoctacliente = async (cliente) => {
+    console.log("DATA SERVICES : ",cliente)
+    const urlList = baseUrl+"/leerestadoctacliente/"+cliente
     const res = await axios.get(urlList)
     .then(response=>{ return response.data; })
     .catch(error=>{ return error; })

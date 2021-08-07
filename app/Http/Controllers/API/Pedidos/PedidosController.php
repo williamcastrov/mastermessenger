@@ -259,6 +259,38 @@ class PedidosController extends Controller
           return $response;
       }
 
+      public function leerpedidoscliente($cliente){
+        try { 
+          $data = DB::select("SELECT t0.*, t1.nombre_emp, t2.nombre_est, t3.nombre_zon, t4.descripcion_tpd, t5.nombre_ciu,
+                                          t6.primer_nombre_cli, t6.segundo_nombre_cli, t6.primer_apellido_cli, t6.segundo_apellido_cli,
+                                          t6.razonsocial_cli, t7.primer_nombre_men, t7.segundo_nombre_men, t7.primer_apellido_men,
+                                          t7.segundo_apellido_men,
+                                          CONCAT(t7.primer_nombre_men,' ',t7.segundo_nombre_men,' ',t7.primer_apellido_men,' ',
+                                          t7.segundo_apellido_men) as nombremensajero
+                       FROM pedidos as t0 INNER JOIN empresa      as t1 INNER JOIN estados  as t2 INNER JOIN zonas    as t3 
+                                          INNER JOIN tipospedidos as t4 INNER JOIN ciudades as t5 INNER JOIN clientes as t6
+                                          INNER JOIN mensajeros    as t7
+                       WHERE t0.empresa_ped    = t1.id_emp and t0.estado_ped       = t2.id_est  and t0.zona_ped    = t3.id_zon and
+                             t0.tipopedido_ped = t4.id_tpd and t0.ciudadorigen_ped = t5.id_ciu  and t0.cliente_ped = t6.id_cli and
+                             t0.mensajero_ped  = t7.id_men and t0.cliente_ped      = $cliente   and t0.estado_ped in (1,2,3,4)");
+      
+          if ($data) {
+              $response['data'] = $data;
+              $response['message'] = "Load successful";
+              $response['success'] = true;
+          }
+          else {
+              $response['data'] = null;
+              $response['message'] = "Not found data cliente_ped => $cliente";
+              $response['success'] = false;
+          }
+          } catch (\Exception $e) {
+              $response['message'] = $e->getMessage();
+              $response['success'] = false;
+          }
+          return $response;
+      }
+
       public function leerestadoctamensajero($mensajero){
         try { 
           $data = DB::select("SELECT t0.*, t1.nombre_emp, t2.nombre_est, t3.nombre_zon, t4.descripcion_tpd, t5.nombre_ciu as ciudadorigen,
@@ -283,7 +315,41 @@ class PedidosController extends Controller
           }
           else {
               $response['data'] = null;
-              $response['message'] = "Not found data id_ped => $id_ped";
+              $response['message'] = "Not found data mensajero_ped => $mensajero";
+              $response['success'] = false;
+          }
+          } catch (\Exception $e) {
+              $response['message'] = $e->getMessage();
+              $response['success'] = false;
+          }
+          return $response;
+      }
+
+      public function leerestadoctacliente($cliente){
+        try { 
+          $data = DB::select("SELECT t0.*, t1.nombre_emp, t2.nombre_est, t3.nombre_zon, t4.descripcion_tpd, t5.nombre_ciu as ciudadorigen,
+                                          t8.nombre_ciu as ciudaddestino,
+                                          t6.primer_nombre_cli, t6.segundo_nombre_cli, t6.primer_apellido_cli, t6.segundo_apellido_cli,
+                                          t6.razonsocial_cli, t7.primer_nombre_men, t7.segundo_nombre_men, t7.primer_apellido_men,
+                                          t7.segundo_apellido_men,
+                                          CONCAT(t7.primer_nombre_men,' ',t7.segundo_nombre_men,' ',t7.primer_apellido_men,' ',
+                                          t7.segundo_apellido_men) as nombremensajero
+                       FROM pedidos as t0 INNER JOIN empresa      as t1 INNER JOIN estados  as t2 INNER JOIN zonas    as t3 
+                                          INNER JOIN tipospedidos as t4 INNER JOIN ciudades as t5 INNER JOIN clientes as t6
+                                          INNER JOIN mensajeros    as t7 INNER JOIN vista_ciudaddestinopedidos as t8
+                       WHERE t0.empresa_ped    = t1.id_emp and t0.estado_ped       = t2.id_est  and t0.zona_ped    = t3.id_zon  and
+                             t0.tipopedido_ped = t4.id_tpd and t0.ciudadorigen_ped = t5.id_ciu  and  t0.cliente_ped = t6.id_cli and
+                             t0.ciudaddestino_ped = t8.ciudaddestino_ped and t0.id_ped = t8.id_ped and t0.mensajero_ped  = t7.id_men and 
+                             t0.cliente_ped       = $cliente             and t0.estado_ped in (5,6)");
+      
+          if ($data) {
+              $response['data'] = $data;
+              $response['message'] = "Load successful";
+              $response['success'] = true;
+          }
+          else {
+              $response['data'] = null;
+              $response['message'] = "Not found data cliente_ped => $cliente";
               $response['success'] = false;
           }
           } catch (\Exception $e) {

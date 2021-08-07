@@ -68,3 +68,7 @@ Route::get('/pedidos/terminarpedidos', 'App\Http\Controllers\MasterMessengerCont
 Route::get('/mensajeros/pedidosmensajero', 'App\Http\Controllers\MasterMessengerController@index');
 Route::get('/mensajeros/estadoctamensajero', 'App\Http\Controllers\MasterMessengerController@index');
 
+// Rutas del Modulo Clientes
+Route::get('/clientes/pedidoscliente', 'App\Http\Controllers\MasterMessengerController@index');
+Route::get('/clientes/estadoctacliente', 'App\Http\Controllers\MasterMessengerController@index');
+

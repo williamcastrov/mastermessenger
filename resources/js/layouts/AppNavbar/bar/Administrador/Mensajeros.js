@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Activos() {
+function Mensajeros() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [openPA, setOpenPA] = React.useState(false);
@@ -89,4 +89,4 @@ function Activos() {
   );
 }
 
-export default Activos;
+export default Mensajeros;

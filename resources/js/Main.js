@@ -37,6 +37,10 @@ import PorTerminar from "./pages/Pedidos/Terminar";
 import PedidosMensajero from "./pages/Mensajeros/PedidosMensajero";
 import EstadoCtaMensajero from "./pages/Mensajeros/EstadoCtaMensajero";
 
+// Componentes Modulo Cliente
+import PedidosCliente from "./pages/Cliente/PedidosCliente";
+import EstadoCtaCliente from "./pages/Cliente/EstadoCtaCliente";
+
 //Componentes Modulo Interlocutores
 import TipoInterlocutores from './pages/Interlocutores/Parameters/TipoInterlocutores';
 import TiposCategorias from './pages/Interlocutores/Parameters/TiposCategorias';
@@ -46,11 +50,8 @@ import Mensajeros from './pages/Interlocutores/Mensajeros';
 
 import Loading from './components/Loading';
 
-/*
-import Especialidades from './pages/Interlocutores/Parameters/Especialidades';
-import Proveedores from './pages/Interlocutores/Proveedores';
-import Contactos from './pages/Interlocutores/Contactos';
-*/
+//Componentes Modulo Interlocutores
+import InformeEstadoCtaCliente from './pages/Informes/EstadoCtaCliente';
 
 function Main(props) {
     const { metadata, componente, tipousuario, user, idUsu, nombreUsuario } = props;
@@ -97,6 +98,17 @@ function Main(props) {
                                 <Route path="/mensajeros/estadoctamensajero">
                                     < EstadoCtaMensajero metadata={metadata} idUsu={idUsu} nombreUsuario={nombreUsuario} />
                                 </Route>
+
+                                <Route path="/clientes/pedidoscliente">
+                                    <PedidosCliente metadata={metadata} idUsu={idUsu} nombreUsuario={nombreUsuario} />
+                                </Route>
+                                <Route path="/clientes/estadoctacliente">
+                                    < EstadoCtaCliente metadata={metadata} idUsu={idUsu} nombreUsuario={nombreUsuario} />
+                                </Route>
+                                <Route path="/informes/estadoctacliente">
+                                    < InformeEstadoCtaCliente metadata={metadata} idUsu={idUsu} nombreUsuario={nombreUsuario} />
+                                </Route>
+                               
                             </Switch>
                         </ThemeProvider>
                     </Router>

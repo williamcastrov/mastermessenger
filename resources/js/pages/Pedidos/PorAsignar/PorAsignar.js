@@ -9,6 +9,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Moment from 'moment';
 import swal from 'sweetalert';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import EmailIcon from '@material-ui/icons/Email';
 import AssignmentReturnIcon from '@material-ui/icons/AssignmentReturn';
 import Loading from "../../../components/Loading";
 
@@ -24,6 +25,8 @@ import tipotiqueteraServices from "../../../services/Tiquetera/TiposTiquetera";
 import ciudadesServices from "../../../services/Parameters/Ciudades";
 import estadosServices from "../../../services/Parameters/Estados";
 import empresasServices from "../../../services/Parameters/Empresa";
+
+import EnviarEmail from "../../EnviarEmail";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -112,6 +115,7 @@ function PorAsignar() {
   const [listarPedidosServicio, setListarPedidosServicio] = useState([]);
   const [listarPedidosPorServicio, setListarPedidosPorServicio] = useState([]);
   const [listarPedidosAsignados, setListarPedidosAsignados] = useState([]);
+  const [modalEmail, setModalEmail] = useState(false);
   const [modalAsignar, setModalAsignar] = useState(false);
   const [modalDesAsignar, setModalDesAsignar] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
@@ -282,6 +286,12 @@ function PorAsignar() {
     (caso === "Editar") ? abrirCerrarModalAsignar() : abrirCerrarModalEliminar()
   }
 
+  const seleccionarPedidoEmail = async (pedido, caso) => {
+    console.log("Pedido Seleccionado : ", pedido)
+    setPedidosSeleccionado(pedido);
+    abrirCerrarModalEmail()
+  }
+
   const seleccionarPedidoDesAsignar = (desasignar, caso) => {
     if (desasignar.estado_ped !== 1) {
       swal("DesAsignar Pedido", "Pedido seleccionado NO esta asignado!", "warning", { button: "Aceptar" });
@@ -307,6 +317,10 @@ function PorAsignar() {
 
   const abrirCerrarModalEliminar = () => {
     setModalEliminar(!modalEliminar);
+  }
+
+  const abrirCerrarModalEmail = () => {
+    setModalEmail(!modalEmail);
   }
 
   const abrirCerrarModalLoading = () => {
@@ -780,6 +794,12 @@ function PorAsignar() {
     </div>
   )
 
+  const enviarEmailMensajero = (
+    <div className={styles.modal}>
+      <EnviarEmail pedidosSeleccionado={pedidosSeleccionado} />
+    </div>
+  )
+
   return (
     <div className="App">
       <br />
@@ -797,6 +817,11 @@ function PorAsignar() {
             icon: AssignmentReturnIcon,
             tooltip: 'DesAsignar Pedido',
             onClick: (event, rowData) => seleccionarPedidoDesAsignar(rowData, "DesAsignar")
+          },          ,
+          {
+            icon: EmailIcon,
+            tooltip: 'Enviar Email',
+            onClick: (event, rowData) => seleccionarPedidoEmail(rowData, "DesAsignar")
           }
         ]}
         options={{
@@ -885,6 +910,13 @@ function PorAsignar() {
         onClose={abrirCerrarModalLoading}
       >
         {mostrarModal}
+      </Modal>
+
+      <Modal
+        open={modalEmail}
+        onClose={abrirCerrarModalEmail}
+      >
+        {enviarEmailMensajero}
       </Modal>
     </div>
   );

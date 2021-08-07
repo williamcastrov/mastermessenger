@@ -890,7 +890,7 @@ function PedidosMensajero(props) {
     <div className="App">
       <br />
       <Grid container spacing={2}>
-        <Grid item xs={12} md={2}>
+        <Grid item xs={12} md={3}>
           <Typography align="center" className={styles.typography} variant="button" display="block" >
             Usuario - {nombreUsuario}
           </Typography>

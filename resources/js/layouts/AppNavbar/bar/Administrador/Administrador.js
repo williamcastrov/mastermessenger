@@ -7,6 +7,7 @@ import Terceros from "./Terceros";
 import Pedidos from "./Pedidos";
 import Tiquetera from "./Tiquetera";
 import Mensajeros from "./Mensajeros";
+import Clientes from "./Clientes";
 import MisDirecciones from "./MisDirecciones";
 import Informes from "./Informes";
 
@@ -46,6 +47,7 @@ function Administrador() {
             <Tiquetera />
             <Pedidos />
             <Mensajeros />
+            <Clientes />
             <MisDirecciones />
             <Informes />
         </List>
